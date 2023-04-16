@@ -2,7 +2,7 @@ import React from 'react'
 import './WeatherCard.scss'
 
 const WeatherCard = (props) => {
-  const {} = props
+  const {date, icon, maxTemp, minTemp, weeklyWeather, time} = props
 
   const getWeekday = (date) => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -11,9 +11,10 @@ const WeatherCard = (props) => {
   }
 
   return (
-    <div>
-      <h3>{getWeekday(forecast.forecastday[0].date)}</h3>
-
+    <div className='weather-card'>
+      {weeklyWeather ? <h4>{getWeekday(date).substring(0,3)}</h4> : <h4>{time}</h4>}
+      <img className='weather-card__icon' src={icon} alt="" />
+      <h4>{Math.round(maxTemp)}° {weeklyWeather &&<span>{Math.round(minTemp)}°</span>}</h4>
     </div>
   )
 }

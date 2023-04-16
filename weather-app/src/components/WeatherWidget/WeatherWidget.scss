@@ -1,13 +1,17 @@
 .weather-widget{
-    width: 44rem;
+    width: 60vw;
     height: 28rem;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
 
     &__today{
-        width: 30%;
+        width: 40%;
         background-color: lightblue;
-        
+    }
+
+    &__further-info{
+        width: 60%;
+        padding: 2rem;
     }
 }

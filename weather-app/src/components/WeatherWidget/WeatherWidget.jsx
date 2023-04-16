@@ -1,10 +1,12 @@
 import React from 'react'
 import './WeatherWidget.scss'
 import SearchFilter from '../SearchFilter/SearchFilter'
+import WeeklyWeather from '../../containers/WeeklyWeather/WeeklyWeather'
+import HourlyWeather from '../../containers/HourlyWeather/HourlyWeather'
 
 const WeatherWidget = (props) => {
 
-  const {current, forecast} = props
+  const {current, forecast, forecasts, hourForecasts} = props
 
   const getWeekday = (date) => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -31,6 +33,10 @@ const WeatherWidget = (props) => {
         </div>
 
         <div className='weather-widget__further-info'>
+          <WeeklyWeather forecasts = {forecasts}/>
+          <HourlyWeather hourForecasts = {hourForecasts}/>
+
+          
         </div>
     </div>
   )
