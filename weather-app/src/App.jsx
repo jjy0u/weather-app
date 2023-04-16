@@ -27,7 +27,7 @@ const App = () => {
       Welcome Back
       {weather.current &&<img src={weather.current['condition'].icon} alt="" />}
 
-      <WeatherWidget current = {weather.current}/>
+      {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast}/>}
     </div>
   );
 }
