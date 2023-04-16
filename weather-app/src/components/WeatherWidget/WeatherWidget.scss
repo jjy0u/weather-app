@@ -1,0 +1,13 @@
+.weather-widget{
+    width: 44rem;
+    height: 28rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+
+    &__current{
+        width: 30%;
+        background-color: lightblue;
+        
+    }
+}
