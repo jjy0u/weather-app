@@ -14,4 +14,21 @@
         width: 60%;
         padding: 2rem;
     }
+
+    &__current-highlights{
+        padding-top: 1rem;
+    }
+    &__now-info{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        padding-top: 1rem;
+    }
+
+    &__info-card{
+        border: 1px solid black;
+        border-radius: 0.7rem;
+        padding-top: 0.8rem;
+        padding: 1rem;
+    }
 }
