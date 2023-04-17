@@ -4,7 +4,6 @@
 }
 
 .weather-card{
-    border: 1px solid black;
     border-radius: 0.7rem;
     display: flex;
     flex-direction: column;
@@ -12,6 +11,7 @@
     gap: 0.2rem;
     min-width: 4rem;
     padding: 0.4rem;
+    background-color: white;
 
     &__icon{
         width: 70%;

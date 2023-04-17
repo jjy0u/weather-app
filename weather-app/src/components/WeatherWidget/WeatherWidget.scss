@@ -4,17 +4,26 @@
     border: 1px solid black;
     display: flex;
     flex-direction: row;
+    border-radius: 2rem;
+    margin-left: 5rem;
 
     &__today{
         width: 40%;
-        background-color: lightblue;
+        padding: 2rem;
+        border-radius: 2rem 0 0 2rem;
+
+
+    }
+
+    &__location{
+        display: flex;
+        gap: 1rem;
     }
 
     &__location-button{
         border-radius: 3rem;
         padding: 0.2rem 0.3rem;
         border: 0;
-
     }
 
     &__location-icon{
@@ -25,6 +34,8 @@
     &__further-info{
         width: 60%;
         padding: 2rem;
+        background-color: lightgrey;
+        border-radius: 0 2rem 2rem 0;
     }
 
     &__current-highlights{
@@ -38,7 +49,7 @@
     }
 
     &__info-card{
-        border: 1px solid black;
+        background-color: white;
         border-radius: 0.7rem;
         padding-top: 0.8rem;
         padding: 1rem;

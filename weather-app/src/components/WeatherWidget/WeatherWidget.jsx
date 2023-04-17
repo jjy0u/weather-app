@@ -6,7 +6,7 @@ import HourlyWeather from '../../containers/HourlyWeather/HourlyWeather'
 
 const WeatherWidget = (props) => {
 
-  const {current, forecast, forecasts, hourForecasts, handleLocation} = props
+  const {current, forecast, forecasts, hourForecasts, handleLocation, handleInput, handleSearchTerm} = props
 
   const getWeekday = (date) => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -19,7 +19,7 @@ const WeatherWidget = (props) => {
     <div className='weather-widget'>
         <div className='weather-widget__today'>
           <div className='weather-widget__location'>
-            <SearchFilter/>
+            <SearchFilter handleInput = {handleInput} handleSearchTerm={handleSearchTerm}/>
             <button className='weather-widget__location-button' onClick={handleLocation}><img className='weather-widget__location-icon' src="https://img.icons8.com/material-outlined/24/null/center-direction.png" alt="o"/></button>
           </div>
           {current &&<img src={current.condition.icon} alt="" />}
