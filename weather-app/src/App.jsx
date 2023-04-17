@@ -12,8 +12,8 @@ const App = () => {
 
   const getWeather = async () => {
     const url = rootURL;
-    //const res = await fetch(url + `?key=${process.env.REACT_APP_API_KEY}&q=London&days=7&aqi=no&alerts=no`)
-    const res = await fetch(url + `?key=43ecf8b9cc5944259d9222011231404&q=${position}&days=7&aqi=no&alerts=no`)
+    const res = await fetch(url + `?key=${process.env.REACT_APP_API_KEY}&q=${position}&days=7&aqi=no&alerts=no`)
+    //const res = await fetch(url + `?key=43ecf8b9cc5944259d9222011231404&q=${position}&days=7&aqi=no&alerts=no`)
     const data = await res.json();
     setWeather(data)
     console.log(position)
