@@ -10,6 +10,18 @@
         background-color: lightblue;
     }
 
+    &__location-button{
+        border-radius: 3rem;
+        padding: 0.2rem 0.3rem;
+        border: 0;
+
+    }
+
+    &__location-icon{
+        position: relative;
+    }
+
+
     &__further-info{
         width: 60%;
         padding: 2rem;
