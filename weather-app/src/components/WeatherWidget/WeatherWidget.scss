@@ -115,5 +115,39 @@
         border-radius: 0.7rem;
         padding-top: 0.8rem;
         padding: 1rem;
+        height: 7rem;
+    }
+
+    &__info-value{
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    &__unit{
+        font-size: 24px;
+    }
+
+    &__wind-dir{
+        font-size: 18px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin-top: 1rem;
+    }
+
+    &__info-title{
+        color: grey;
+        margin-bottom: 1rem;
+    }
+
+    &__highlight-icon{
+        width: 1.5rem;
+        margin-right: 0.3rem;
+    }
+
+    &__suns{
+        font-size: 20px;
+        margin-bottom: 16px;
     }
 }

@@ -5,6 +5,14 @@ import WeeklyWeather from '../../containers/WeeklyWeather/WeeklyWeather'
 import HourlyWeather from '../../containers/HourlyWeather/HourlyWeather'
 import rainLogo from "../../assets/images/rain.png"
 import locationPin from "../../assets/images/pin.png"
+import compass from "../../assets/images/compass.png"
+import humidity from "../../assets/images/humidity.png"
+import visibility from "../../assets/images/visibility.png"
+import sunset from "../../assets/images/sunset.png"
+import sunrise from "../../assets/images/sunrise.png"
+import UV from "../../assets/images/uv.png"
+import wind from "../../assets/images/wind.png"
+import thermometer from "../../assets/images/thermometer.png"
 
 
 const WeatherWidget = (props) => {
@@ -33,7 +41,6 @@ const WeatherWidget = (props) => {
           <hr class="solid"/>
           <h3 className='weather-widget__description'><img className='weather-widget__small-icon' src={forecast.forecastday[0].day.condition.icon} alt="" />{forecast.forecastday[0].day.condition.text}</h3>
           <h3 className='weather-widget__rain-chance'><img className='weather-widget__rain-icon' src={rainLogo}></img> Rain - {forecast.forecastday[0].day.daily_chance_of_rain}%</h3>
-
           <h3 className='weather-widget__pinpoint-location'><img className='weather-widget__pin-icon' src={locationPin}></img> {location.name}, {location.country}</h3>
         </div>
 
@@ -45,34 +52,34 @@ const WeatherWidget = (props) => {
           <div className='weather-widget__now-info'>
             <div className='weather-widget__info-card'>
               <h5 className='weather-widget__info-title'>Feels Like</h5>
-              <h2 className='weather-widget__info-value'>{current.feelslike_c}°</h2>
+              <h2 className='weather-widget__info-value'><img className='weather-widget__highlight-icon' src={thermometer} alt="" />{Math.round(current.feelslike_c)}°</h2>
             </div>
 
             <div className='weather-widget__info-card'>
               <h5 className='weather-widget__info-title'>UV Index</h5>
-              <h2 className='weather-widget__info-value'>{current.uv}</h2>
+              <h2 className='weather-widget__info-value'><img className='weather-widget__highlight-icon' src={UV} alt="" />{current.uv}</h2>
             </div>
 
             <div className='weather-widget__info-card'>
               <h5 className='weather-widget__info-title'>Sunrise & Sunset</h5>
-              <h2 className='weather-widget__info-value'>{forecast.forecastday[0].astro.sunrise}</h2>
-              <h2 className='weather-widget__info-value'>{forecast.forecastday[0].astro.sunset}</h2>
+              <h2 className='weather-widget__info-value weather-widget__suns'><img className='weather-widget__highlight-icon' src={sunrise} alt="" />{forecast.forecastday[0].astro.sunrise}</h2>
+              <h2 className='weather-widget__info-value weather-widget__suns'><img className='weather-widget__highlight-icon' src={sunset} alt="" />{forecast.forecastday[0].astro.sunset}</h2>
             </div>
 
             <div className='weather-widget__info-card'>
               <h5 className='weather-widget__info-title'>Wind</h5>
-              <h2 className='weather-widget__info-value'>{current.wind_kph} km/h</h2>
-              <h2 className='weather-widget__info-value'>{current.wind_dir}</h2>
+              <h2 className='weather-widget__info-value'><img className='weather-widget__highlight-icon' src={wind} alt="" />{Math.round(current.wind_kph)}<span className='weather-widget__unit'>km/h</span></h2>
+              <h2 className='weather-widget__wind-dir'><img className='weather-widget__highlight-icon' src={compass} alt="" />{current.wind_dir}</h2>
             </div>
 
             <div className='weather-widget__info-card'>
               <h5 className='weather-widget__info-title'>Humidity</h5>
-              <h2 className='weather-widget__info-value'>{current.humidity} %</h2>
+              <h2 className='weather-widget__info-value'><img className='weather-widget__highlight-icon' src={humidity} alt="" />{current.humidity}<span className='weather-widget__unit'>%</span></h2>
             </div>
 
             <div className='weather-widget__info-card'>
               <h5 className='weather-widget__info-title'>Visibility</h5>
-              <h2 className='weather-widget__info-value'>{current.vis_km} km</h2>
+              <h2 className='weather-widget__info-value'><img className='weather-widget__highlight-icon' src={visibility} alt="" />{current.vis_km}<span className='weather-widget__unit'>km</span></h2>
             </div>
 
           </div>

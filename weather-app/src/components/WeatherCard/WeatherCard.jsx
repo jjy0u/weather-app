@@ -14,7 +14,7 @@ const WeatherCard = (props) => {
     <div className='weather-card'>
       {weeklyWeather ? <h4>{getWeekday(date).substring(0,3)}</h4> : <h4>{time}</h4>}
       <img className='weather-card__icon' src={icon} alt="" />
-      <h4>{Math.round(maxTemp)}° {weeklyWeather &&<span>{Math.round(minTemp)}°</span>}</h4>
+      <h4>{Math.round(maxTemp)}° {weeklyWeather &&<span className='weather-card__min-temp'>{Math.round(minTemp)}°</span>}</h4>
     </div>
   )
 }
