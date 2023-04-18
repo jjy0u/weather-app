@@ -1,6 +1,6 @@
 .weather-widget{
     width: 60vw;
-    height: 28rem;
+    height: 37rem;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
@@ -9,15 +9,77 @@
 
     &__today{
         width: 40%;
-        padding: 2rem;
+        padding: 1.8rem;
         border-radius: 2rem 0 0 2rem;
-
-
     }
 
     &__location{
         display: flex;
         gap: 1rem;
+    }
+
+    &__icon-container{
+        width: 12rem;
+    }
+
+    hr{
+        margin: 1.8rem 0;
+        border: 0.7px solid lightgray;
+    }
+
+    &__main-icon{
+        width: 100%;
+    }
+
+    &__temp{
+        font-size: 60px;
+        font-weight: 300;
+    }
+
+    &__date{
+        font-size: 18px;
+    }
+
+    &__time{
+        color: grey;
+    }
+
+    &__small-icon{
+        width: 2rem;
+    }
+
+    &__description{
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin-bottom: 0.5rem;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__rain-icon{
+        width: 1.7rem;
+    }
+
+    &__rain-chance{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+
+    &__pinpoint-location{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &__pin-icon{
+        width: 1.7rem;
     }
 
     &__location-button{
@@ -33,7 +95,7 @@
 
     &__further-info{
         width: 60%;
-        padding: 2rem;
+        padding: 1.8rem;
         background-color: lightgrey;
         border-radius: 0 2rem 2rem 0;
     }

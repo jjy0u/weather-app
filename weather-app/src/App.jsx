@@ -69,7 +69,7 @@ const App = () => {
       Welcome Back
       {weather.current &&<img src={weather.current['condition'].icon} alt="" />}
 
-      {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast} forecasts = {weather.forecast.forecastday} hourForecasts = {weather.forecast.forecastday[0].hour} handleLocation = {getLocation} handleInput = {handleInput} handleSearchTerm={handleSearchTerm}/>}
+      {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast} forecasts = {weather.forecast.forecastday} hourForecasts = {weather.forecast.forecastday[0].hour} handleLocation = {getLocation} handleInput = {handleInput} handleSearchTerm={handleSearchTerm} location = {weather.location}/>}
 
     </div>
   );
