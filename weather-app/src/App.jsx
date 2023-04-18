@@ -76,8 +76,6 @@ const App = () => {
     setSearchTerm(event.target.value)
   }
 
-  if(Number(weather.location.localtime.split(" ")[1]) > 6:00)
-
   const greetByTime = (timeString) => {
     const [hour, minute] = timeString.split(':');
     const currentTime = new Date();
@@ -87,18 +85,18 @@ const App = () => {
     const currentHour = currentTime.getHours();
   
     if (currentHour >= 5 && currentHour < 12) {
-      return 'Good morning!';
+      return 'Good morning,';
     } else if (currentHour >= 12 && currentHour < 17) {
-      return 'Good afternoon!';
+      return 'Good afternoon,';
     } else {
-      console.log('Good evening!');
+      return 'Good evening,';
     }
   };
   
   
   return (
     <div className="App">
-      <h1 className='App__title'>Welcome Back, Jina</h1>
+      <h1 className='App__title'>{greetByTime(weather.location.localtime.split(" ")[1])} Jina</h1>
 
         <div className='App__widgets'>
           {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast} forecasts = {weather.forecast.forecastday} hourForecasts = {weather.forecast.forecastday[0].hour} handleLocation = {getLocation} handleInput = {handleInput} handleSearchTerm={handleSearchTerm} location = {weather.location}/>}
