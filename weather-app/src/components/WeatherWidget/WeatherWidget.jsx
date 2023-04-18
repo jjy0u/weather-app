@@ -1,5 +1,6 @@
 import React from 'react'
 import './WeatherWidget.scss'
+import RadioButtons from '../RadioButtons/RadioButtons'
 import SearchFilter from '../SearchFilter/SearchFilter'
 import WeeklyWeather from '../../containers/WeeklyWeather/WeeklyWeather'
 import HourlyWeather from '../../containers/HourlyWeather/HourlyWeather'
@@ -13,11 +14,15 @@ import sunrise from "../../assets/images/sunrise.png"
 import UV from "../../assets/images/uv.png"
 import wind from "../../assets/images/wind.png"
 import thermometer from "../../assets/images/thermometer.png"
+import { useState } from 'react'
 
 
 const WeatherWidget = (props) => {
 
   const {current, forecast, forecasts, hourForecasts, handleLocation, handleInput, handleSearchTerm, location} = props
+
+  const [isToday, setIsToday] = useState(false);
+
 
   const getWeekday = (date) => {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -25,6 +30,15 @@ const WeatherWidget = (props) => {
     return weekdays[dayIndex];
   }
 
+  const handleCheck = (event) => {
+     if(event.target.value == 'Today'){
+      setIsToday(true)
+     } else{
+      setIsToday(false)
+     }
+  }
+
+  console.log(isToday)
 
   return (
     <div className='weather-widget'>
@@ -45,8 +59,9 @@ const WeatherWidget = (props) => {
         </div>
 
         <div className='weather-widget__further-info'>
-          <WeeklyWeather forecasts = {forecasts}/>
-          {/* <HourlyWeather hourForecasts = {hourForecasts}/> */}
+          <RadioButtons handleCheck= {handleCheck} />
+          {!isToday && <WeeklyWeather forecasts = {forecasts}/>}
+          {isToday&& <HourlyWeather hourForecasts = {hourForecasts}/>}
 
           <h3 className='weather-widget__current-highlights'>Current Highlights</h3>
           <div className='weather-widget__now-info'>

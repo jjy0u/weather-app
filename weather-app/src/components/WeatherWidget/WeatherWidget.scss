@@ -7,7 +7,7 @@
     border-radius: 2rem;
 
     &__today{
-        width: 40%;
+        width: 30rem;
         padding: 1.8rem;
         border-radius: 2rem 0 0 2rem;
     }
@@ -93,14 +93,13 @@
 
 
     &__further-info{
-        width: 60%;
         padding: 1.8rem;
         background-color: lightgrey;
         border-radius: 0 2rem 2rem 0;
     }
 
     &__current-highlights{
-        padding-top: 1rem;
+        padding-top: 2rem;
     }
     &__now-info{
         display: grid;
