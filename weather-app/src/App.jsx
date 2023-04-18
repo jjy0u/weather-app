@@ -2,10 +2,11 @@ import './App.scss';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import WeatherWidget from './components/WeatherWidget/WeatherWidget';
-import { set } from 'immutable';
+import NewsWidget from './components/NewsWidget/NewsWidget';
 
 const App = () => {
   const [weather, setWeather] = useState([])
+  const [news, setNews] = useState([])
   const [position, setPosition] = useState(['London'])
   const [searchTerm, setSearchTerm] = useState([''])
   const [isError, setIsError] = useState(false);
@@ -21,12 +22,26 @@ const App = () => {
     }
     const data = await res.json();
     setWeather(data)
-    console.log(res)
+  };
+
+  const getNews = async () => {
+    const url = "https://api.worldnewsapi.com/search-news";
+    
+    if (!position.includes(",")) {
+      const res = await fetch(url + `?api-key=c6a57e77d8bf43a0b2083a79f6096ecd&number=3&location-filters=${weather.location.lat},${weather.location.lon},100&earliest-publish-date=2023-04-17`)
+      const data = await res.json();
+      setNews(data)
+    } else {
+      const res = await fetch(url + `?api-key=c6a57e77d8bf43a0b2083a79f6096ecd&number=3&location-filter=${position},100&earliest-publish-date=2023-04-17`)
+      const data = await res.json();
+      setNews(data)
+    }
   };
 
 
   useEffect(() => {
     getWeather()
+    getNews()
   }, [position])
 
   const getLocation = () => {
@@ -61,16 +76,34 @@ const App = () => {
     setSearchTerm(event.target.value)
   }
 
+  if(Number(weather.location.localtime.split(" ")[1]) > 6:00)
+
+  const greetByTime = (timeString) => {
+    const [hour, minute] = timeString.split(':');
+    const currentTime = new Date();
+    currentTime.setHours(hour);
+    currentTime.setMinutes(minute);
   
-
-
+    const currentHour = currentTime.getHours();
+  
+    if (currentHour >= 5 && currentHour < 12) {
+      return 'Good morning!';
+    } else if (currentHour >= 12 && currentHour < 17) {
+      return 'Good afternoon!';
+    } else {
+      console.log('Good evening!');
+    }
+  };
+  
+  
   return (
     <div className="App">
-      Welcome Back
-      {weather.current &&<img src={weather.current['condition'].icon} alt="" />}
+      <h1 className='App__title'>Welcome Back, Jina</h1>
 
-      {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast} forecasts = {weather.forecast.forecastday} hourForecasts = {weather.forecast.forecastday[0].hour} handleLocation = {getLocation} handleInput = {handleInput} handleSearchTerm={handleSearchTerm} location = {weather.location}/>}
-
+        <div className='App__widgets'>
+          {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast} forecasts = {weather.forecast.forecastday} hourForecasts = {weather.forecast.forecastday[0].hour} handleLocation = {getLocation} handleInput = {handleInput} handleSearchTerm={handleSearchTerm} location = {weather.location}/>}
+          {/* <NewsWidget news={news.news}/> */}
+        </div>
     </div>
   );
 }
