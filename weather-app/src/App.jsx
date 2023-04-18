@@ -28,11 +28,11 @@ const App = () => {
     const url = "https://api.worldnewsapi.com/search-news";
     
     if (!position.includes(",")) {
-      const res = await fetch(url + `?api-key=c6a57e77d8bf43a0b2083a79f6096ecd&number=3&location-filters=${weather.location.lat},${weather.location.lon},100&earliest-publish-date=2023-04-17`)
+      const res = await fetch(url + `?api-key=40b76bb1ccca4ac5ba49d51c4dceb7f5&number=3&location-filters=${weather.location.lat},${weather.location.lon},100&earliest-publish-date=2023-04-17`)
       const data = await res.json();
       setNews(data)
     } else {
-      const res = await fetch(url + `?api-key=c6a57e77d8bf43a0b2083a79f6096ecd&number=3&location-filter=${position},100&earliest-publish-date=2023-04-17`)
+      const res = await fetch(url + `?api-key=40b76bb1ccca4ac5ba49d51c4dceb7f5&number=3&location-filter=${position},100&earliest-publish-date=2023-04-17`)
       const data = await res.json();
       setNews(data)
     }
@@ -96,11 +96,11 @@ const App = () => {
   
   return (
     <div className="App">
-      <h1 className='App__title'>{greetByTime(weather.location.localtime.split(" ")[1])} Jina</h1>
+      {weather.current &&<h1 className='App__title'>{greetByTime(weather.location.localtime.split(" ")[1])} Jina</h1>}
 
         <div className='App__widgets'>
           {weather.current && <WeatherWidget current = {weather.current} forecast = {weather.forecast} forecasts = {weather.forecast.forecastday} hourForecasts = {weather.forecast.forecastday[0].hour} handleLocation = {getLocation} handleInput = {handleInput} handleSearchTerm={handleSearchTerm} location = {weather.location}/>}
-          {/* <NewsWidget news={news.news}/> */}
+          {news.news && <NewsWidget news={news.news}/>}
         </div>
     </div>
   );
