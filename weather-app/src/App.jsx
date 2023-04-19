@@ -11,12 +11,13 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState([''])
   const [isError, setIsError] = useState(false);
 
-  const rootURL = "http://api.weatherapi.com/v1/forecast.json"
+  const rootURL = `http://api.weatherapi.com/v1/forecast.json?key=43ecf8b9cc5944259d9222011231404&q=${position}&days=7&aqi=no&alerts=no`;
+  console.log(rootURL)  
 
   const getWeather = async () => {
     const url = rootURL;
     //const res = await fetch(url + `?key=${process.env.REACT_APP_API_KEY}&q=${position}&days=7&aqi=no&alerts=no`)
-    const res = await fetch(url + `?key=43ecf8b9cc5944259d9222011231404&q=${position}&days=7&aqi=no&alerts=no`)
+    const res = await fetch(url)
     if (!res.ok) {
       throw new Error('Invalid location entered');
     }
@@ -28,7 +29,7 @@ const App = () => {
     const url = "https://api.worldnewsapi.com/search-news";
     
     if (!position.includes(",")) {
-      const res = await fetch(url + `?api-key=40b76bb1ccca4ac5ba49d51c4dceb7f5&number=3&location-filters=${weather.location.lat},${weather.location.lon},100&earliest-publish-date=2023-04-17`)
+      const res = await fetch(url + `?api-key=40b76bb1ccca4ac5ba49d51c4dceb7f5&number=3&location-filters=51.5072,0.1276,100&earliest-publish-date=2023-04-17`)
       const data = await res.json();
       setNews(data)
     } else {
